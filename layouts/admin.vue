@@ -1,21 +1,9 @@
 <template>
   <v-app>
     <!-- サイドバー部分  -->
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
+    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
+        <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -32,11 +20,11 @@
       <v-spacer />
     </v-app-bar>
     <!-- コンテンツ部分 -->
-    <v-content>
+    <v-main>
       <v-container fluid pa-10>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
     <!-- フッター部分 -->
     <v-footer :fixed="fixed" app>
       <span>© {{ new Date().getFullYear() }}</span>
@@ -55,12 +43,12 @@ export default {
         {
           icon: "mdi-account",
           title: "管理者一覧",
-          to: "/admin"
-        }
+          to: "/admin",
+        },
       ],
       miniVariant: false,
-      title: "Laravel Nuxt Admin"
+      title: "Laravel Nuxt Admin",
     };
-  }
+  },
 };
 </script>
